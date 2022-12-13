@@ -1,6 +1,7 @@
 // function component not support state
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Products from './components/Products';
 
 export default class App extends Component {
   state = {
@@ -30,11 +31,7 @@ export default class App extends Component {
       <div>
         <h1>{this.state.siteTitle}</h1>
         <h2>Product</h2>
-        {
-          this.state.products.map((product) => (
-            <li key={product.id}>Id: {product.id}, Name: {product.name}, Description: {product.desc}</li>
-          ))
-        }
+        <Products Items={this.state.products} />
       </div>
     )
   }

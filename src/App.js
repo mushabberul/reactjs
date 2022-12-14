@@ -22,16 +22,37 @@ export default class App extends Component {
         name: "product 3",
         desc: "product 3 description"
       },
-    ]
-  }
-  render() {
-    console.log(this.state.products)
+    ],
 
+    // inputtest: '',
+    sp: false
+
+  }
+
+  showProducts = (e) => {
+    this.setState({ sp: true });
+  }
+  // handalerTest = (e) => {
+  //   this.setState({inputtest: e.target.value})
+  //   console.log(this.state.inputtest)
+  // }
+
+  render() {
+    var showProductsMarkup = ''
+    if (this.state.sp === true) {
+      showProductsMarkup = <Products Items={this.state.products} />
+    }
     return (
       <div>
         <h1>{this.state.siteTitle}</h1>
         <h2>Product</h2>
-        <Products Items={this.state.products} />
+
+        <button onClick={this.showProducts}>Show Products</button>
+        {/* <form action="">
+          <input type="text" name="" id="" onChange={this.handalerTest} />
+        </form> */}
+
+        {showProductsMarkup}
       </div>
     )
   }

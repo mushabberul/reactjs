@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import HeaderStyle from './Header.module.css'
 
 export default class Header extends Component {
     render() {
         return (
-            <div>Header</div>
+            <div className={HeaderStyle.header}>Header</div>
         )
     }
 }

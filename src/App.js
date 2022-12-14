@@ -1,6 +1,7 @@
 // function component not support state
 
 import React, { Component } from 'react';
+import Header from './components/Header';
 import Products from './components/Products';
 
 export default class App extends Component {
@@ -42,10 +43,16 @@ export default class App extends Component {
     if (this.state.sp === true) {
       showProductsMarkup = <Products Items={this.state.products} />
     }
+    const myStyle = {
+      color: 'red',
+      backgroundColor: 'yellow',
+      fontSize: '45px',
+
+    }
     return (
       <div>
-        <h1>{this.state.siteTitle}</h1>
-        <h2>Product</h2>
+        <h1 style={{ color: 'orange' }}>{this.state.siteTitle}</h1>
+        <h2 style={myStyle}>Product</h2>
 
         <button onClick={this.showProducts}>Show Products</button>
         {/* <form action="">
@@ -53,7 +60,8 @@ export default class App extends Component {
         </form> */}
 
         {showProductsMarkup}
-      </div>
+        <Header />
+      </div >
     )
   }
 }

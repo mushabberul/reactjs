@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Products from './components/Products';
+import axios from 'axios';
 
 export default class App extends Component {
   state = {
@@ -26,7 +27,8 @@ export default class App extends Component {
     ],
 
     // inputtest: '',
-    sp: false
+    sp: false,
+    photos: []
 
   }
 
@@ -38,10 +40,22 @@ export default class App extends Component {
   //   console.log(this.state.inputtest)
   // }
 
+
+  // componentDidMount() {
+  //   axios.get('https://jsonplaceholder.typicode.com/todos').then(
+  //     res => this.setState({ products: res.data })
+  //   )
+  // }
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/photos?_limit=2').then(
+      res => this.setState({ photos: res.data })
+    )
+  }
+
   render() {
     var showProductsMarkup = ''
     if (this.state.sp === true) {
-      showProductsMarkup = <Products Items={this.state.products} />
+      showProductsMarkup = <Products Items={this.state.photos} />
     }
     const myStyle = {
       color: 'red',
